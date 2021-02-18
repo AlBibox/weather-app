@@ -1,0 +1,206 @@
+//FONT WEIGHT
+$regular: 400;
+$medium: 500;
+$bold: 700;
+
+//COLOR
+$titleColor: #00001a;
+$listItem: #e6f2ff;
+$timeBox: #00264d;
+$timeText: #FFF;
+$weatherPicture: #0066cc;
+$tableHeadingBg: #000d1a;
+$tableHeadingText: #FFF;
+$buttonBg: #000033;
+$selectedButtonBg: #ffa64d;
+$selectedButtonText: #000033;
+$buttonText: #FFF;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Heebo', sans-serif;
+}
+
+li{
+    text-decoration: none;
+    list-style: none;
+}
+
+.App{
+    margin: 1rem 1rem;
+
+    h1{color: $titleColor;}
+
+    .form{
+        margin-bottom: 3.5rem;
+        input{
+            width: 30rem;
+            padding: 0.5rem;
+            font-size: 1em;
+            border-style: none;
+            background-color: $listItem;
+            margin-right: 0.5rem;
+        }
+        button{
+            font-size: 1em;
+            padding: 0.5rem 1.5rem;
+            text-decoration: none;
+            background-color: $buttonBg;
+            color: $buttonText;
+            border-style: none;
+            cursor: pointer;
+        }
+    }
+    
+    .weatherInfo{ 
+        h3{font-size: 1.5rem;}
+
+        .daySelector{
+            margin-bottom: 0.5rem;
+            ul{
+                display: flex;
+                li{
+                    padding:0.5rem 2rem;
+                    background-color: $buttonBg;
+                    color: $buttonText;
+                    margin-right: 0.5rem;
+                    cursor: pointer;
+                }
+                .selected{
+                    background-color: $selectedButtonBg;
+                    color: $selectedButtonText;
+                    font-weight: $bold;
+                }
+            }
+        }
+
+        .scrollableWrapper{
+            .table{
+                width: 60rem;
+
+                .tableHeadings{
+                    padding: 0.5rem 0;
+                    display: flex;
+                    background-color: $tableHeadingBg;
+                    color: $tableHeadingText;
+
+                    h5{
+                        font-weight: $bold;
+                        font-size: 1em;
+                    }
+
+                    .time{padding: 0 1.8rem}
+
+                    .weatherImage {padding: 0 1.2rem; overflow: hidden}
+
+                    .temp{
+                        width: 8rem;
+                        padding: 0 2rem 0 4rem;
+                    }
+
+                    .humidity{padding: 0 3rem;}
+
+                    .wind{
+                        padding: 0 3.5rem;
+                        width: 15rem; 
+                    }    
+                }
+
+                .tableData{
+                    .singleListItem{
+                        display: flex;
+                        align-items: center;
+                        background-color: $listItem;
+                        
+                        .time{
+                            background-color: $timeBox;
+                            color: $timeText;
+                            padding: 1rem 1.8rem;
+                            font-weight: $bold;
+                        }
+
+                        .weatherImage {
+                            background-color: $weatherPicture;
+                            padding: 0 0.5rem;
+                            img{width: 3.05rem;}   
+                        }
+
+                        .temp{
+                            width: 10rem;
+                            padding: 0 2rem 0 4rem;
+                        }
+
+                        .humidity{padding: 0 2rem;}
+
+                        .wind{
+                            padding: 0 5rem;
+                            width: 15rem;
+                        }
+
+                        .pressure{padding: 0 2rem}  
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px){
+    .App .weatherInfo .scrollableWrapper .table{width: 55rem}
+}
+
+@media (max-width: 824px){
+    .App{
+        .weatherInfo{
+            .scrollableWrapper{
+                overflow-x: scroll;
+                .table{
+                    width: 55rem
+                }
+            }
+        }
+    }
+   
+}
+
+@media (max-width: 700px) {
+    html{
+        font-size: 80%;
+    }
+
+    .App{
+        .form input{width: 15rem}
+
+        .weatherInfo{
+            .daySelector{
+
+                margin-bottom: 1rem;
+                ul{
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    li{     
+                        width: 100%;
+                        margin-right: 0;
+                        margin-bottom: 0.2rem;      
+                    }
+                }
+            }
+
+            .scrollableWrapper{
+                overflow-x: scroll;
+                .table{
+                    width: 55rem
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
