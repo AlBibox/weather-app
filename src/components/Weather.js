@@ -8,7 +8,6 @@ const Weather = (props) => {
     const [selectedDay, setSelectedDay] = useState();
 
     useEffect(() => {
-        console.log(props.weatherInfo);
         setDaysInterval(getDaysInterval(props.weatherInfo))
         setSelectedDay(props.weatherInfo.list[0].dt_txt.slice(0, 10));
         
@@ -70,6 +69,7 @@ const Weather = (props) => {
                                         .filter(single => single.dt_txt.slice(0, 10) === daysInterval[0])
                                         .map(single =>
                                             <SingleListItem
+                                                key={single.dt}
                                                 time={single.dt_txt.slice(11, 16)}
                                                 weatherDesc={single.weather[0].icon}
                                                 temperature={single.main.temp}
@@ -84,6 +84,7 @@ const Weather = (props) => {
                                         .filter(single => single.dt_txt.slice(0, 10) === daysInterval[1])
                                         .map(single =>
                                             <SingleListItem
+                                                key={single.dt}
                                                 time={single.dt_txt.slice(11, 16)}
                                                 weatherDesc={single.weather[0].icon}
                                                 temperature={single.main.temp}
@@ -98,6 +99,7 @@ const Weather = (props) => {
                                         .filter(single => single.dt_txt.slice(0, 10) === daysInterval[2])
                                         .map(single =>
                                             <SingleListItem
+                                                key={single.dt}
                                                 time={single.dt_txt.slice(11, 16)}
                                                 weatherDesc={single.weather[0].icon}
                                                 temperature={single.main.temp}
